@@ -106,15 +106,17 @@ public class WebElements_Step {
 		webElementPage.clickShowButton();
 	}
 	
-	@And("User enters row and column number to fetch the fixed header table content")
+	
+	@Given("user enters row and column number to fetch the fixed header table content")
 	public void user_enters_row_and_column_number_to_fetch_the_fixed_header_table_content() throws InterruptedException {
-	    
+
 		Thread.sleep(1000);
 		webElementPage.fixedrowsNum();
 		webElementPage.fixedcolumnsNum();
-		webElementPage.fixedenterRowAndColumnNumbers(2, 2);
+		webElementPage.fixedenterRowAndColumnNumbers(9, 1);
 		
 	}
+
 
 
 	@And("User closes the browser")
