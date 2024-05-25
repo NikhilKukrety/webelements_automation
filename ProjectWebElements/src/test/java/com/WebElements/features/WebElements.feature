@@ -17,3 +17,4 @@ Feature: To verify user is able to practice all the webelements in the practice 
     And User clicks on Show button
     And user enters row and column number to fetch the fixed header table content
     And User closes the browser
+    #And test step
