@@ -11,7 +11,6 @@ import io.cucumber.junit.CucumberOptions;
 glue={"com.WebElements.stepDefinitions"},
 monochrome=true,
 plugin={"html:target/Cucumber-reports.html"}
-
 //tags = "@FullRegression"
 )
 

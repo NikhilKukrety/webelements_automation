@@ -253,6 +253,29 @@ public class WebElementsPage extends BaseClass {
 		}
 	}
 	
+	public void fixedrowsNum()
+	{
+		List<WebElement> intRowNum = driver.findElements(By.xpath("/html/body/div[3]/div[2]/fieldset[2]/div[1]/table/tbody/tr"));
+		int rowSize = intRowNum.size();
+		System.out.println("\n"+"Number of rows: "+rowSize+"\n");
+		
+	}
+	
+	public void fixedcolumnsNum()
+	{
+		List<WebElement> intColumns = driver.findElements(By.xpath("//*[@id=\"product\"]/thead/tr/th"));
+		int columnsSize = intColumns.size();
+		System.out.println("\n"+"Number of rows: "+columnsSize+"\n");
+	}
+	
+	public void fixedenterRowAndColumnNumbers(int row, int column)
+	{
+		WebElement tableData = driver.findElement(By.xpath("/html/body/div[3]/div[2]/fieldset[2]/div[1]/table/tbody/tr["+row+"]/td["+column+"]"));
+		String fetchedTableData = tableData.getText();
+		System.out.println("\n"+"Fetched record from fixed header table after entering row-column numbers is: "+fetchedTableData+"\n");
+		
+	}
+	
 
 	public void closeBrowser() {
 		driver.quit();

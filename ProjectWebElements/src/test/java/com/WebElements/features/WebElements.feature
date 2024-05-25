@@ -14,5 +14,6 @@ Feature: To verify user is able to practice all the webelements in the practice 
     And User performs alert operations successfully
     And User enters row and column number to fetch the table content
     And User clicks on Hide button
-    And User clciks on Show button
+    And User clicks on Show button
+    And user enters row and column number to fetch the fixed header table content
     And User closes the browser
