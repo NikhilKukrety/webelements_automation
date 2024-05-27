@@ -45,7 +45,7 @@ public class WebElementsPage extends BaseClass {
 	public void printRadioButton(String radioButton) {
 		WebElement radioString = driver.findElement(By.xpath("//label[@for='" + radioButton + "']"));
 		String radioButtonFetched = radioString.getText();
-		System.out.println("\n"+"Selected Radio button is: " + radioButtonFetched+"\n");
+		System.out.println("\n" + "Selected Radio button is: " + radioButtonFetched + "\n");
 	}
 
 	public void enterAndSelectCountry(String country) throws InterruptedException {
@@ -57,7 +57,7 @@ public class WebElementsPage extends BaseClass {
 		suggestedCountry.click();
 		// Thread.sleep(2000);
 		String selectedCountry = clickCountry.getAttribute("value");
-		System.out.println("\n"+"Selected Country is: " + selectedCountry+"\n");
+		System.out.println("\n" + "Selected Country is: " + selectedCountry + "\n");
 	}
 
 	public void selectDropdownValue(String dropDownValue) {
@@ -65,14 +65,14 @@ public class WebElementsPage extends BaseClass {
 		Select dropdown = new Select(dropDownExample);
 		dropdown.selectByVisibleText(dropDownValue);
 		String selectedDropdownValue = dropDownExample.getAttribute("value");
-		System.out.println("\n"+"Selected dropdown value is: " + selectedDropdownValue+"\n");
+		System.out.println("\n" + "Selected dropdown value is: " + selectedDropdownValue + "\n");
 	}
 
 	public void selectCheckBox(String value) {
 		WebElement checkboxValue = driver.findElement(By.xpath("//input[@value = '" + value + "']"));
 		checkboxValue.click();
 		String valueSelected = checkboxValue.getAttribute("value");
-		System.out.println("\n"+"Selected checkbox value is: " + valueSelected+"\n");
+		System.out.println("\n" + "Selected checkbox value is: " + valueSelected + "\n");
 	}
 
 	public void windowSwitch() throws InterruptedException {
@@ -88,21 +88,19 @@ public class WebElementsPage extends BaseClass {
 		waitForWebElement(driver.findElement(By.xpath("//a[@class='active']")));
 		WebElement subMenuBar = driver.findElement(By.xpath("//div[@id='navbarSupportedContent']"));
 		if (subMenuBar.isDisplayed()) {
-			System.out.println("\n"+"Child window switching successful"+"\n");
+			System.out.println("\n" + "Child window switching successful" + "\n");
 			driver.close();
 		}
 
 		else {
-			System.out.println("\n"+"Child window switching unsuccessful"+"\n");
+			System.out.println("\n" + "Child window switching unsuccessful" + "\n");
 		}
 		driver.switchTo().window(parentWindow);
 		WebElement SignInButtonNew = driver.findElement(By.xpath("//button[@class='btn btn-primary'][2]"));
 		if (SignInButtonNew.isDisplayed()) {
-			System.out.println("\n"+"Parent window switching successful"+"\n");
-		}
-		else
-		{
-			System.out.println("\n"+"Parent window switching unsuccessful"+"\n");
+			System.out.println("\n" + "Parent window switching successful" + "\n");
+		} else {
+			System.out.println("\n" + "Parent window switching unsuccessful" + "\n");
 		}
 
 	}
@@ -120,21 +118,19 @@ public class WebElementsPage extends BaseClass {
 		waitForWebElement(driver.findElement(By.xpath("//a[@class='active']")));
 		WebElement subMenuBar = driver.findElement(By.xpath("//div[@id='navbarSupportedContent']"));
 		if (subMenuBar.isDisplayed()) {
-			System.out.println("\n"+"Child tab switching successful"+"\n");
+			System.out.println("\n" + "Child tab switching successful" + "\n");
 			driver.close();
 		}
 
 		else {
-			System.out.println("\n"+"Child tab switching unsuccessful"+"\n");
+			System.out.println("\n" + "Child tab switching unsuccessful" + "\n");
 		}
 		driver.switchTo().window(parentTab);
 		WebElement SignInButtonNew = driver.findElement(By.xpath("//button[@class='btn btn-primary'][2]"));
 		if (SignInButtonNew.isDisplayed()) {
-			System.out.println("\n"+"Parent tab switching successful"+"\n");
-		}
-		else
-		{
-			System.out.println("\n"+"Parent tab switching unsuccessful"+"\n");
+			System.out.println("\n" + "Parent tab switching successful" + "\n");
+		} else {
+			System.out.println("\n" + "Parent tab switching unsuccessful" + "\n");
 		}
 
 	}
@@ -149,7 +145,7 @@ public class WebElementsPage extends BaseClass {
 		alertButton.click();
 		Thread.sleep(3000);
 		String alertOKMessage = driver.switchTo().alert().getText();
-		System.out.println("\n"+"Captured Alert OK message is: " + alertOKMessage+"\n");
+		System.out.println("\n" + "Captured Alert OK message is: " + alertOKMessage + "\n");
 		driver.switchTo().alert().dismiss();
 		Thread.sleep(2000);
 
@@ -161,10 +157,10 @@ public class WebElementsPage extends BaseClass {
 		confirmButton.click();
 		Thread.sleep(3000);
 		String alertConfirmMessage = driver.switchTo().alert().getText();
-		System.out.println("\n"+"Captured Alert Confirm message is: " + alertConfirmMessage+"\n");
+		System.out.println("\n" + "Captured Alert Confirm message is: " + alertConfirmMessage + "\n");
 		driver.switchTo().alert().accept();
 		Thread.sleep(2000);
-		
+
 		// Cancel - Confirmation button:
 		alertField.click();
 		alertField.sendKeys(name);
@@ -174,124 +170,106 @@ public class WebElementsPage extends BaseClass {
 		driver.switchTo().alert().dismiss();
 
 	}
-	
-	public void rowsNum()
-	{
+
+	public void rowsNum() {
 		List<WebElement> intRowNum = driver.findElements(By.xpath("//*[@class='table-display']/tbody/tr"));
 		int rowSize = intRowNum.size();
-		System.out.println("\n"+"Number of rows: "+rowSize+"\n");
-		
+		System.out.println("\n" + "Number of rows: " + rowSize + "\n");
+
 	}
-	
-	public void columnsNum()
-	{
+
+	public void columnsNum() {
 		List<WebElement> intColumns = driver.findElements(By.xpath("//*[@class='table-display']/tbody/tr[1]/th"));
 		int columnsSize = intColumns.size();
-		System.out.println("\n"+"Number of rows: "+columnsSize+"\n");
+		System.out.println("\n" + "Number of rows: " + columnsSize + "\n");
 	}
-	
-	public void enterRowAndColumnNumbers(int row, int column)
-	{
-		WebElement tableData = driver.findElement(By.xpath("//*[@class='table-display']/tbody/tr["+row+"]/td["+column+"]"));
+
+	public void enterRowAndColumnNumbers(int row, int column) {
+		WebElement tableData = driver
+				.findElement(By.xpath("//*[@class='table-display']/tbody/tr[" + row + "]/td[" + column + "]"));
 		String fetchedTableData = tableData.getText();
-		System.out.println("\n"+"Fetched record after entering row-column numbers is: "+fetchedTableData+"\n");
-		
+		System.out.println("\n" + "Fetched record after entering row-column numbers is: " + fetchedTableData + "\n");
+
 	}
-	
-	public void clickHideButton() throws InterruptedException
-	{
+
+	public void clickHideButton() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement Element = driver.findElement(By.xpath("/html/body/div[3]/div[1]/fieldset/legend"));
 		js.executeScript("arguments[0].scrollIntoView();", Element);
-		
+
 		WebElement hideButton = driver.findElement(By.id("hide-textbox"));
 		WebElement inputField = driver.findElement(By.id("displayed-text"));
-		if(inputField.isDisplayed())
-		{
+		if (inputField.isDisplayed()) {
 			Thread.sleep(2000);
-			System.out.println("\n"+"Field is not hidden. Proceeding to click the 'Hide' button."+"\n");
+			System.out.println("\n" + "Field is not hidden. Proceeding to click the 'Hide' button." + "\n");
 			hideButton.click();
+		} else {
+			System.out.println("\n" + "Field is hidden or not available." + "\n");
+
 		}
-		else
-		{
-			System.out.println("\n"+"Field is hidden or not available."+"\n");
-			
+
+		if (inputField.isDisplayed()) {
+			System.out.println("\n" + "Error in hiding the input field." + "\n");
+		} else {
+			System.out.println("\n" + "Input field hidden successfully." + "\n");
 		}
-		
-		
-		if(inputField.isDisplayed())
-		{
-			System.out.println("\n"+"Error in hiding the input field."+"\n");
-		}
-		else
-		{
-			System.out.println("\n"+"Input field hidden successfully."+"\n");
-		}
-		
+
 	}
-	
-	public void clickShowButton()
-	{
+
+	public void clickShowButton() {
 		WebElement showButton = driver.findElement(By.id("show-textbox"));
 		WebElement inputField = driver.findElement(By.id("displayed-text"));
-		if(inputField.isDisplayed())
-		{
-			System.out.println("\n"+"Input field already displaying."+"\n");
-		}
-		else
-		{
-			System.out.println("\n"+"Input field is hidden. Proceeding to click the 'Show' button."+"\n");
+		if (inputField.isDisplayed()) {
+			System.out.println("\n" + "Input field already displaying." + "\n");
+		} else {
+			System.out.println("\n" + "Input field is hidden. Proceeding to click the 'Show' button." + "\n");
 			showButton.click();
 		}
-		
-		if(inputField.isDisplayed())
-		{
-			System.out.println("\n"+"Input field shown again successfully."+"\n");
-		}
-		else
-		{
-			System.out.println("\n"+"Error in showing the input field."+"\n");
+
+		if (inputField.isDisplayed()) {
+			System.out.println("\n" + "Input field shown again successfully." + "\n");
+		} else {
+			System.out.println("\n" + "Error in showing the input field." + "\n");
 		}
 	}
-	
-	public void fixedrowsNum()
-	{
-		List<WebElement> intRowNum = driver.findElements(By.xpath("/html/body/div[3]/div[2]/fieldset[2]/div[1]/table/tbody/tr"));
+
+	public void fixedrowsNum() {
+		List<WebElement> intRowNum = driver
+				.findElements(By.xpath("/html/body/div[3]/div[2]/fieldset[2]/div[1]/table/tbody/tr"));
 		int rowSize = intRowNum.size();
-		System.out.println("\n"+"Number of rows: "+rowSize+"\n");
-		
+		System.out.println("\n" + "Number of rows: " + rowSize + "\n");
+
 	}
-	
-	public void fixedcolumnsNum()
-	{
+
+	public void fixedcolumnsNum() {
 		List<WebElement> intColumns = driver.findElements(By.xpath("//*[@id=\"product\"]/thead/tr/th"));
 		int columnsSize = intColumns.size();
-		System.out.println("\n"+"Number of rows: "+columnsSize+"\n");
+		System.out.println("\n" + "Number of rows: " + columnsSize + "\n");
 	}
-	
-	public void fixedenterRowAndColumnNumbers(int row, int column)
-	{
-		WebElement tableData = driver.findElement(By.xpath("/html/body/div[3]/div[2]/fieldset[2]/div[1]/table/tbody/tr["+row+"]/td["+column+"]"));
+
+	public void fixedenterRowAndColumnNumbers(int row, int column) {
+		WebElement tableData = driver.findElement(
+				By.xpath("/html/body/div[3]/div[2]/fieldset[2]/div[1]/table/tbody/tr[" + row + "]/td[" + column + "]"));
 		String fetchedTableData = tableData.getText();
-		System.out.println("\n"+"Fetched record from fixed header table after entering row-column numbers is: "+fetchedTableData+"\n");
-		
+		System.out.println("\n" + "Fetched record from fixed header table after entering row-column numbers is: "
+				+ fetchedTableData + "\n");
+
 	}
-	
-	public void performMouseHoverTasks() throws InterruptedException
-	{
+
+	public void performMouseHoverTasks() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement Element = driver.findElement(By.xpath("/html/body/div[4]/div/fieldset/legend"));
 		js.executeScript("arguments[0].scrollIntoView();", Element);
 		Thread.sleep(2000);
 		Actions actions = new Actions(driver);
-		
-		//WebElement mouseHoverTitle = driver.findElement(By.xpath("/html/body/div[4]/div/fieldset/legend"));
-		
-		if(Element.isDisplayed())
-		{
-			
+
+		// WebElement mouseHoverTitle =
+		// driver.findElement(By.xpath("/html/body/div[4]/div/fieldset/legend"));
+
+		if (Element.isDisplayed()) {
+
 			String mhTitle = Element.getText();
-			System.out.println("\n"+"Mouse Hover title is displayed as: "+mhTitle+"\n");
+			System.out.println("\n" + "Mouse Hover title is displayed as: " + mhTitle + "\n");
 			WebElement mhButton = driver.findElement(By.id("mousehover"));
 			actions.moveToElement(mhButton).perform();
 			Thread.sleep(2000);
@@ -299,43 +277,32 @@ public class WebElementsPage extends BaseClass {
 			topButton.click();
 			Thread.sleep(2000);
 			WebElement practicePageTitle = driver.findElement(By.xpath("/html/body/h1"));
-			if(practicePageTitle.isDisplayed())
-			{
-				System.out.println("\n"+"Top button successfully clicked and working."+"\n");
+			if (practicePageTitle.isDisplayed()) {
+				System.out.println("\n" + "Top button successfully clicked and working." + "\n");
+			} else {
+				System.out.println("\n" + "Top button not working/not displayed." + "\n");
 			}
-			else
-			{
-				System.out.println("\n"+"Top button not working/not displayed."+"\n");
-			}
-			
+
 			js.executeScript("arguments[0].scrollIntoView();", Element);
 			Thread.sleep(2000);
 			actions.moveToElement(mhButton).perform();
 			Thread.sleep(2000);
 			WebElement reloadButton = driver.findElement(By.xpath("/html/body/div[4]/div/fieldset/div/div/a[2]"));
 			reloadButton.click();
-			//Thread.sleep(3000);
+			// Thread.sleep(3000);
 			WebElement homeButton = driver.findElement(By.xpath("//button[text()='Home']"));
 			waitForWebElement(homeButton);
-			if(homeButton.isDisplayed())
-			{
-				System.out.println("\n"+"Reload button successfully clicked and working."+"\n");
+			if (homeButton.isDisplayed()) {
+				System.out.println("\n" + "Reload button successfully clicked and working." + "\n");
+			} else {
+				System.out.println("\n" + "Reload button not working/not displayed." + "\n");
 			}
-			else
-			{
-				System.out.println("\n"+"Reload button not working/not displayed."+"\n");
-			}
-									
+
+		} else {
+			System.out.println("\n" + "Mouse Hover title is not displayed." + "\n");
 		}
-		else
-		{
-			System.out.println("\n"+"Mouse Hover title is not displayed."+"\n");
-		}
-		
-		
-		
+
 	}
-	
 
 	public void closeBrowser() {
 		driver.quit();

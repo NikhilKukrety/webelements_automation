@@ -11,7 +11,7 @@ Feature: To verify user is able to practice all the webelements in the practice 
     And User selects an option from checkbox
     And User performs window switching operation successfully
     And User performs tab switching operation successfully
-   	And User performs alert operations successfully
+    And User performs alert operations successfully
     And User enters row and column number to fetch the table content
     And User clicks on Hide button
     And User clicks on Show button
