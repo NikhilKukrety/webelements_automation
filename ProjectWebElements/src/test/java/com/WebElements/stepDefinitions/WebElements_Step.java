@@ -116,7 +116,14 @@ public class WebElements_Step {
 		webElementPage.fixedenterRowAndColumnNumbers(9, 1);
 		
 	}
+	
+	
+	@Given("User performs mouse hover activities")
+	public void user_performs_mouse_hover_activities() throws InterruptedException {
 
+		webElementPage.performMouseHoverTasks();
+		
+	}
 
 
 	@And("User closes the browser")

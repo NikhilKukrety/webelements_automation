@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -273,6 +274,65 @@ public class WebElementsPage extends BaseClass {
 		WebElement tableData = driver.findElement(By.xpath("/html/body/div[3]/div[2]/fieldset[2]/div[1]/table/tbody/tr["+row+"]/td["+column+"]"));
 		String fetchedTableData = tableData.getText();
 		System.out.println("\n"+"Fetched record from fixed header table after entering row-column numbers is: "+fetchedTableData+"\n");
+		
+	}
+	
+	public void performMouseHoverTasks() throws InterruptedException
+	{
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement Element = driver.findElement(By.xpath("/html/body/div[4]/div/fieldset/legend"));
+		js.executeScript("arguments[0].scrollIntoView();", Element);
+		Thread.sleep(2000);
+		Actions actions = new Actions(driver);
+		
+		//WebElement mouseHoverTitle = driver.findElement(By.xpath("/html/body/div[4]/div/fieldset/legend"));
+		
+		if(Element.isDisplayed())
+		{
+			
+			String mhTitle = Element.getText();
+			System.out.println("\n"+"Mouse Hover title is displayed as: "+mhTitle+"\n");
+			WebElement mhButton = driver.findElement(By.id("mousehover"));
+			actions.moveToElement(mhButton).perform();
+			Thread.sleep(2000);
+			WebElement topButton = driver.findElement(By.xpath("/html/body/div[4]/div/fieldset/div/div/a[1]"));
+			topButton.click();
+			Thread.sleep(2000);
+			WebElement practicePageTitle = driver.findElement(By.xpath("/html/body/h1"));
+			if(practicePageTitle.isDisplayed())
+			{
+				System.out.println("\n"+"Top button successfully clicked and working."+"\n");
+			}
+			else
+			{
+				System.out.println("\n"+"Top button not working/not displayed."+"\n");
+			}
+			
+			js.executeScript("arguments[0].scrollIntoView();", Element);
+			Thread.sleep(2000);
+			actions.moveToElement(mhButton).perform();
+			Thread.sleep(2000);
+			WebElement reloadButton = driver.findElement(By.xpath("/html/body/div[4]/div/fieldset/div/div/a[2]"));
+			reloadButton.click();
+			//Thread.sleep(3000);
+			WebElement homeButton = driver.findElement(By.xpath("//button[text()='Home']"));
+			waitForWebElement(homeButton);
+			if(homeButton.isDisplayed())
+			{
+				System.out.println("\n"+"Reload button successfully clicked and working."+"\n");
+			}
+			else
+			{
+				System.out.println("\n"+"Reload button not working/not displayed."+"\n");
+			}
+									
+		}
+		else
+		{
+			System.out.println("\n"+"Mouse Hover title is not displayed."+"\n");
+		}
+		
+		
 		
 	}
 	
