@@ -1,5 +1,9 @@
 package com.WebElements.pages;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.Set;
 
@@ -303,6 +307,39 @@ public class WebElementsPage extends BaseClass {
 		}
 
 	}
+
+	public void iFrameVerification() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement Element = driver.findElement(By.xpath("/html/body/div[5]/fieldset/legend"));
+		js.executeScript("arguments[0].scrollIntoView();", Element);
+		// WebElement iFrameTitle =
+		// driver.findElement(By.xpath("/html/body/div[5]/fieldset/legend"));
+		if (Element.isDisplayed()) {
+			System.out.println("\n" + "iFrame title is displayed." + "\n");
+			driver.switchTo().frame("courses-iframe");
+			// Since page inside the frame is not working, coming out of the frame:
+			driver.switchTo().defaultContent();
+		} else {
+			System.out.println("\n" + "iFrame title is not displayed." + "\n");
+		}
+	}
+
+	/*
+	 * public void testBrokenLinks() throws IOException { List<WebElement> links =
+	 * driver.findElements(By.tagName("a")); System.out.println("\n" +
+	 * "Total number of links in the page are: " + links.size() + "\n");
+	 * 
+	 * for (int i = 0; i < links.size(); i++) { WebElement element = links.get(i);
+	 * String url = element.getAttribute("href"); System.out.println(url); URL link
+	 * = new URL(url); HttpURLConnection httpConn = (HttpURLConnection)
+	 * link.openConnection(); httpConn.connect();
+	 * 
+	 * int code = httpConn.getResponseCode(); if (code >= 400) {
+	 * System.out.println("Following link is broken: " + url); } else {
+	 * System.out.println("Following link is working: " + url); } }
+	 * 
+	 * }
+	 */
 
 	public void closeBrowser() {
 		driver.quit();

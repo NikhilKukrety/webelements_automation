@@ -1,5 +1,7 @@
 package com.WebElements.stepDefinitions;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import com.WebElements.pages.WebElementsPage;
 import io.cucumber.java.en.And;
@@ -80,51 +82,64 @@ public class WebElements_Step {
 		webElementPage.alertOperations("Nikhil");
 
 	}
-	
+
 	@And("User enters row and column number to fetch the table content")
 	public void user_enters_row_and_column_number_to_fetch_the_table_content() throws InterruptedException {
-	    
+
 		Thread.sleep(1000);
 		webElementPage.rowsNum();
 		webElementPage.columnsNum();
 		webElementPage.enterRowAndColumnNumbers(2, 2);
-		
+
 	}
-	
+
 	@Given("User clicks on Hide button")
 	public void user_clicks_on_hide_button() throws InterruptedException {
-		
+
 		Thread.sleep(2000);
 		webElementPage.clickHideButton();
-		
+
 	}
-	
+
 	@And("User clicks on Show button")
 	public void user_clicks_on_show_button() throws InterruptedException {
 
 		Thread.sleep(2000);
 		webElementPage.clickShowButton();
 	}
-	
-	
+
 	@Given("user enters row and column number to fetch the fixed header table content")
-	public void user_enters_row_and_column_number_to_fetch_the_fixed_header_table_content() throws InterruptedException {
+	public void user_enters_row_and_column_number_to_fetch_the_fixed_header_table_content()
+			throws InterruptedException {
 
 		Thread.sleep(1000);
 		webElementPage.fixedrowsNum();
 		webElementPage.fixedcolumnsNum();
 		webElementPage.fixedenterRowAndColumnNumbers(9, 1);
-		
+
 	}
-	
-	
-	@Given("User performs mouse hover activities")
+
+	@And("User performs mouse hover activities")
 	public void user_performs_mouse_hover_activities() throws InterruptedException {
 
 		webElementPage.performMouseHoverTasks();
-		
+
 	}
 
+	@And("User switches to frame and verify the nested page")
+	public void user_switches_to_frame_and_verify_the_nested_page() {
+
+		webElementPage.iFrameVerification();
+	}
+
+	/*
+	 * @And("User checks for broken links") public void
+	 * user_checks_for_broken_links() throws IOException {
+	 * 
+	 * webElementPage.testBrokenLinks();
+	 * 
+	 * }
+	 */
 
 	@And("User closes the browser")
 	public void user_closes_the_browser() throws InterruptedException {

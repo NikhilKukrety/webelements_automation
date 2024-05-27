@@ -17,4 +17,6 @@ Feature: To verify user is able to practice all the webelements in the practice 
     And User clicks on Show button
     And user enters row and column number to fetch the fixed header table content
     And User performs mouse hover activities
+    And User switches to frame and verify the nested page
+    #And User checks for broken links --Will not work because of certificate issue
     And User closes the browser
